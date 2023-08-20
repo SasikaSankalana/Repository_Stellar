@@ -14,6 +14,8 @@ import {
 
 import { getMovies, Movie, EmptyItem } from "../../api";
 
+import { Planets, Planet } from "../../api";
+
 const { width, height } = Dimensions.get("window");
 
 import Svg, { Rect } from "react-native-svg";
@@ -31,12 +33,13 @@ const BACKDROP_HEIGHT = height;
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 const LandingPage: React.FC = () => {
-  const [movies, setMovies] = React.useState<(EmptyItem | Movie)[]>([]);
+  const [movies, setMovies] = React.useState<(EmptyItem | Planet)[]>([]);
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const moviesData = await getMovies();
+      // const moviesData = await getMovies();
+      const moviesData = Planets;
       setMovies([
         { key: "empty-left" } as EmptyItem,
         ...moviesData,
@@ -56,7 +59,7 @@ const LandingPage: React.FC = () => {
   return (
     <View style={{ height: "100%", backgroundColor: "black" }}>
       <TopBar />
-      <Backdrop movies={movies} scrollX={scrollX} />
+      {/* <Backdrop movies={movies} scrollX={scrollX} /> */}
       {/* <StatusBar /> */}
       <Animated.FlatList
         showsHorizontalScrollIndicator={false}

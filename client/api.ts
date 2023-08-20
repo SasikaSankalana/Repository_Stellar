@@ -56,6 +56,61 @@ export const getMovies = async (): Promise<Movie[]> => {
       genres: genre_ids.map((genre) => genres[genre]),
     })
   );
+console.log(movies);
 
   return movies;
 };
+
+
+
+export interface Planet {
+  title: string;
+  poster: string;
+  backdrop: string;
+  tagline: string;
+
+}
+
+
+
+export const Planets = [
+  {
+
+      title: "VENUS",
+      poster: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      backdrop: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      tagline: "test"
+  },
+  {
+
+      title: "VENUS",
+      poster: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      backdrop: "https://i.ibb.co/pnmbvV1/1.png",
+      tagline: "test"
+    
+  },
+  {
+
+      title: "VENUS",
+      poster: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      backdrop: "https://i.ibb.co/L5GK46b/sasika-sankalana-Create-a-realistic-image-of-a-bustling-spacepo-c1470f5a-c9d7-4dd9-8589-47fc1d76047b.png",
+      tagline: "test"
+  },
+  {
+
+      title: "VENUS",
+      poster: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      backdrop: "https://i.ibb.co/XWyF0NB/3.png",
+      tagline: "test"
+  },
+  {
+
+      title: "VENUS",
+      poster: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      backdrop: "https://i.ibb.co/SKHtZp0/0-3-1.png",
+      tagline: "test"
+    
+  },
+
+]
+

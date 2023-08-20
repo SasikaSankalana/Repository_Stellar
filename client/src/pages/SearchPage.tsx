@@ -50,12 +50,34 @@ const SearchPage: React.FC = () => {
     { label: "Stellar Sojourn", value: "stellar" },
   ];
 
+  const teams = [
+    { title: "FC Barcelona", description: "Spain" },
+    { title: "Real Madrid", description: "Spain" },
+    { title: "Bayern Munich", description: "Germany" },
+    { title: "Juventus", description: "Italy" },
+  ];
+
+  const genres = [
+    { title: "Google", description: "Mountain View, CA" },
+    { title: "Apple", description: "Cupertino, CA" },
+    { title: "Microsoft", description: "Redmond, WA" },
+    { title: "Facebook", description: "Menlo Park, CA" },
+  ];
+
   const [value, setValue] = React.useState<string>(dropDownOptions[0].value);
 
   return (
     <View style={styles.container}>
       <TopBar />
-      <View>
+
+      {/* <TravelCard
+        travelMode="Bus"
+        price="£2.40"
+        startTime="10:00"
+        endTime="10:30"
+        duration="30 mins"
+      /> */}
+      {/* <View>
         <View>
           <Text>BOOK A RIDE</Text>
         </View>
@@ -74,7 +96,7 @@ const SearchPage: React.FC = () => {
             <DatePicker />
           </View>
         </View>
-      </View>
+      </View> */}
       {/* <DropdownInput
         data={data}
         labelTitle="test"

@@ -1,12 +1,36 @@
-const express = require("express"); //Line 1
-const app = express(); //Line 2
-const port = process.env.PORT || 5000; //Line 3
+const nodemailer = require("nodemailer");
+const otpGenerator = require("otp-generator");
 
-// This displays message that the server running and listening to specified port
-app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
+// Generate a random OTP
+const otp = otpGenerator.generate(6, {
+  digits: true,
+  lowerCaseAlphabets: false,
+  upperCaseAlphabets: false,
+  specialChars: false,
+});
 
-// create a GET route
-app.get("/express_backend", (req, res) => {
-  //Line 9
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" }); //Line 10
-}); //Line 11
+// Email configuration
+const transporter = nodemailer.createTransport({
+  service: "Gmail", // e.g., 'Gmail'
+  auth: {
+    user: "repositorystellar@gmail.com",
+    pass: "jetonkhazyluutey",
+  },
+});
+
+// Email content
+const mailOptions = {
+  from: "repositorystellar@gmail.com@example.com",
+  to: "sasikasankalana321@gmail.com",
+  subject: "Your OTP Code",
+  text: `Your OTP code is: ${otp}`,
+};
+
+// Send the email
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.error("Error sending email:", error);
+  } else {
+    console.log("Email sent:", info.response);
+  }
+});
