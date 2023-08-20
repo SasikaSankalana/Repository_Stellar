@@ -10,8 +10,6 @@ interface OverlayMenuProps {
 const OverlayMenu: React.FC<OverlayMenuProps> = ({ isVisible, onClose }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
-  let logo = require("../../../assets/images/logo.png");
-
   const options = [
     "Home",
     "Book a Ride",
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
   modalContent: {
     height: "100%",
     width: "100%",
-    backgroundColor: "rgba(37, 41, 46, 0.9)",
+    backgroundColor: "rgba(37, 41, 46, 0.99)",
     position: "absolute",
     bottom: 0,
   },

@@ -21,6 +21,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import Loading from "../components/molecules/Backdrop/Loading";
 import Backdrop from "../components/molecules/Backdrop/Backdrop";
+import TopBar from "../components/molecules/TopBar/TopBar";
 
 const SPACING = 10;
 const ITEM_SIZE =
@@ -54,6 +55,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <View style={{ height: "100%", backgroundColor: "black" }}>
+      <TopBar />
       <Backdrop movies={movies} scrollX={scrollX} />
       {/* <StatusBar /> */}
       <Animated.FlatList

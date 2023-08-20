@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   View,
   Text,
@@ -6,7 +6,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import { Svg, Circle } from "react-native-svg";
+import { Svg, Circle, Line } from "react-native-svg";
 
 interface CustomStepperProps {
   activeStep: number;
@@ -105,35 +105,34 @@ const Stepper: React.FC<CustomStepperProps> = ({
   return (
     <View style={styles.container}>
       {/* Bar behind the top icons */}
-      <View style={styles.iconsBar}>
-        {steps.map((_, index) => (
-          <View
-            key={index - 1}
-            style={[
-              styles.iconBar,
-              {
-                backgroundColor:
+
+      <View style={styles.progressBar}>
+        {steps.map((step, index) => (
+          <Fragment key={index}>
+            <Svg height="40" width="40">
+              <Circle
+                cx="20"
+                cy="20"
+                r="15"
+                fill={index === activeStep ? "#ff0000" : "#0b78b3"} // Change the inactive color here
+                stroke="#784af4"
+              />
+            </Svg>
+
+            <Svg height="40" width="50" style={styles.line}>
+              <Line
+                x1="100%"
+                strokeWidth={15}
+                stroke={
                   index == 3
                     ? "transparent"
                     : index + 1 <= activeStep && index != 3
                     ? "#26AFFF"
-                    : "#9CDBFF",
-              },
-            ]}
-          />
-        ))}
-      </View>
-      <View style={styles.progressBar}>
-        {steps.map((step, index) => (
-          <Svg key={index} height="40" width="40">
-            <Circle
-              cx="20"
-              cy="20"
-              r="15"
-              fill={index === activeStep ? "#ff0000" : "#0b78b3"} // Change the inactive color here
-              stroke="#784af4"
-            />
-          </Svg>
+                    : "#9CDBFF"
+                }
+              />
+            </Svg>
+          </Fragment>
         ))}
       </View>
       <View style={styles.stepLabels}>
@@ -194,13 +193,17 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    //
     width: "100%",
     height: "100%",
+    //
   },
   iconsBar: {
     position: "absolute",
     top: 5,
+    //
     left: "18%",
+    //
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -210,7 +213,9 @@ const styles = StyleSheet.create({
   iconBar: {
     // position: "absolute",
     top: 0,
-    width: "20%",
+    //
+    width: "28%",
+    //
     height: 10,
     backgroundColor: "transparent",
     marginTop: 10,
@@ -275,6 +280,9 @@ const styles = StyleSheet.create({
   column: {
     flex: 1,
     padding: 10,
+  },
+  line: {
+    top: "5%",
   },
 });
 

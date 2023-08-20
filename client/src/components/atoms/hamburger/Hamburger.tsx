@@ -23,6 +23,7 @@ const Hamburger: React.FC = () => {
           height: 40,
           backgroundColor: "rgba(73, 74, 79, 0.8)",
           borderRadius: 50,
+          marginLeft: 10,
         }}
       >
         <Image

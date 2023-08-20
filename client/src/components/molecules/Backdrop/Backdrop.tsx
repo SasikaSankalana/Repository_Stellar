@@ -35,7 +35,7 @@ const Backdrop: React.FC<BackdropProps> = ({ movies, scrollX }) => {
   return (
     <View style={{ height: BACKDROP_HEIGHT, width, position: "absolute" }}>
       <FlatList
-        style={{ backgroundColor: "red" }}
+        style={{ zIndex: -1 }}
         data={movies.reverse()}
         keyExtractor={(item) => item.key + "-backdrop"}
         removeClippedSubviews={false}

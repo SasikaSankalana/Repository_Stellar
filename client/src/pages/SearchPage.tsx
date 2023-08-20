@@ -16,6 +16,11 @@ import DropdownInput from "../components/atoms/Input/DropDown";
 import TravelCard from "../components/atoms/cards/TravelCard";
 import Stepper from "../components/organisms/Stepper";
 import Hamburger from "../components/atoms/hamburger/Hamburger";
+import Input from "../components/atoms/Input/TextInput";
+import DatePicker from "../components/atoms/Input/DatePicker";
+import Dropdown from "../components/atoms/filter/FilterDropdown";
+
+import TopBar from "../components/molecules/TopBar/TopBar";
 
 const SearchPage: React.FC = () => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -39,13 +44,48 @@ const SearchPage: React.FC = () => {
     { label: "Item 8", value: "8" },
   ];
 
+  const dropDownOptions = [
+    { label: "Cosmic Rift", value: "cosmic" },
+    { label: "Warp Odyssey", value: "warp" },
+    { label: "Stellar Sojourn", value: "stellar" },
+  ];
+
+  const [value, setValue] = React.useState<string>(dropDownOptions[0].value);
+
   return (
     <View style={styles.container}>
+      <TopBar />
+      <View>
+        <View>
+          <Text>BOOK A RIDE</Text>
+        </View>
+        <View>
+          <DropdownInput
+            data={data}
+            labelTitle="test"
+            onReturnValue={(value) => console.log(value)}
+          />
+          <DropdownInput
+            data={data}
+            labelTitle="test"
+            onReturnValue={(value) => console.log(value)}
+          />
+          <View>
+            <DatePicker />
+          </View>
+        </View>
+      </View>
       {/* <DropdownInput
         data={data}
         labelTitle="test"
         onReturnValue={(value) => console.log(value)}
-      /> */}
+      />
+      <DropdownInput
+        data={data}
+        labelTitle="test"
+        onReturnValue={(value) => console.log(value)}
+      />
+      <DatePicker /> */}
       {/* <TravelCard
         travelMode="asd"
         price="sa"
@@ -59,7 +99,10 @@ const SearchPage: React.FC = () => {
         onNext={handleNext}
         onPrev={handlePrev}
       /> */}
-      <Hamburger />
+      {/* <Hamburger /> */}
+      {/* <Input />
+      
+      {/* <Dropdown options={dropDownOptions} value={value} setValue={setValue} /> */}
     </View>
   );
 };
@@ -68,8 +111,8 @@ export default SearchPage;
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    marginTop: 25,
   },
 });
