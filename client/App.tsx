@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 
 import LandingPage from "./src/pages/LandingPage";
 import SearchPage from "./src/pages/SearchPage";
+import TravelCardExample from "./src/pages/TravelCardExample";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,8 +23,8 @@ const App = () => {
           options={{ headerShown: false }}
         /> */}
         <Stack.Screen
-          name="Search"
-          component={SearchPage}
+          name="TravelCardExample"
+          component={TravelCardExample}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
