@@ -2,12 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 // local imports
-import FilterDropdownExample from './src/pages/FilterDropdownExample';
+import FilterPriceRangeExample from './src/pages/FilterPriceRangeExample';
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <FilterDropdownExample />
+            <FilterPriceRangeExample />
             <StatusBar style="auto" />
         </View>
     );
