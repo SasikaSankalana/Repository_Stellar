@@ -15,106 +15,109 @@ interface CustomStepperProps {
   onPrev: () => void;
 }
 
-const CustomStepper: React.FC<CustomStepperProps> = ({
+const Stepper: React.FC<CustomStepperProps> = ({
   activeStep,
   steps,
   onNext,
   onPrev,
 }) => {
+  const isLastStep = activeStep === steps.length - 1;
 
-    const isLastStep = activeStep === steps.length - 1;
+  const handleNext = () => {
+    if (isLastStep) {
+      // Custom function to execute when Finish is pressed
+      // You can replace this with your desired action
+      console.log("Finish button pressed");
+    } else {
+      onNext();
+    }
+  };
 
-    const handleNext = () => {
-      if (isLastStep) {
-        // Custom function to execute when Finish is pressed
-        // You can replace this with your desired action
-        console.log("Finish button pressed");
-      } else {
-        onNext();
-      }
-    };
+  const renderStepContent = (stepIndex: number) => {
+    switch (stepIndex) {
+      case 0:
+        return (
+          <View>
+            <Text>Step 1 Content</Text>
+            {/* Add your content for Step 1 here */}
+          </View>
+        );
+      case 1:
+        return (
+          <View>
+            <Text>Step 2 Content</Text>
+            {/* Add your content for Step 2 here */}
+          </View>
+        );
+      case 2:
+        return (
+          <View>
+            <Text>Step 3 Content</Text>
+            {/* Add your content for Step 3 here */}
+          </View>
+        );
+      case 3:
+        return (
+          <View>
+            <Text>Step 4 Content</Text>
+            {/* Add your content for Step 4 here */}
+          </View>
+        );
+      default:
+        return null;
+    }
+  };
 
-    const renderStepContent = (stepIndex: number) => {
-        switch (stepIndex) {
-          case 0:
-            return (
-              <View>
-                <Text>Step 1 Content</Text>
-                {/* Add your content for Step 1 here */}
-              </View>
-            );
-          case 1:
-            return (
-              <View>
-                <Text>Step 2 Content</Text>
-                {/* Add your content for Step 2 here */}
-              </View>
-            );
-          case 2:
-            return (
-              <View>
-                <Text>Step 3 Content</Text>
-                {/* Add your content for Step 3 here */}
-              </View>
-            );
-          case 3:
-            return (
-              <View>
-                <Text>Step 4 Content</Text>
-                {/* Add your content for Step 4 here */}
-              </View>
-            );
-          default:
-            return null;
-        }
-      };
-
-      const renderStepLabel = (stepIndex: number) => {
-        switch (stepIndex) {
-          case 0:
-            return (
-              <View>
-                <Text>Flights</Text>
-                {/* Add your content for Step 1 here */}
-              </View>
-            );
-          case 1:
-            return (
-              <View>
-                <Text>Passengers</Text>
-                {/* Add your content for Step 2 here */}
-              </View>
-            );
-          case 2:
-            return (
-              <View>
-                <Text>Payment</Text>
-                {/* Add your content for Step 3 here */}
-              </View>
-            );
-          case 3:
-            return (
-              <View>
-                <Text>Confirm</Text>
-                {/* Add your content for Step 4 here */}
-              </View>
-            );
-          default:
-            return null;
-        }
-      };
+  const renderStepLabel = (stepIndex: number) => {
+    switch (stepIndex) {
+      case 0:
+        return (
+          <View>
+            <Text>Flights</Text>
+            {/* Add your content for Step 1 here */}
+          </View>
+        );
+      case 1:
+        return (
+          <View>
+            <Text>Passengers</Text>
+            {/* Add your content for Step 2 here */}
+          </View>
+        );
+      case 2:
+        return (
+          <View>
+            <Text>Payment</Text>
+            {/* Add your content for Step 3 here */}
+          </View>
+        );
+      case 3:
+        return (
+          <View>
+            <Text>Confirm</Text>
+            {/* Add your content for Step 4 here */}
+          </View>
+        );
+      default:
+        return null;
+    }
+  };
   return (
     <View style={styles.container}>
       {/* Bar behind the top icons */}
       <View style={styles.iconsBar}>
         {steps.map((_, index) => (
           <View
-            key={index-1}
+            key={index - 1}
             style={[
               styles.iconBar,
               {
-                backgroundColor: index == 3 ? "transparent" :
-                  index+1 <= activeStep && index!=3 ? "#26AFFF" : "#9CDBFF",
+                backgroundColor:
+                  index == 3
+                    ? "transparent"
+                    : index + 1 <= activeStep && index != 3
+                    ? "#26AFFF"
+                    : "#9CDBFF",
               },
             ]}
           />
@@ -156,7 +159,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
             ]}
           >
             {/* Add your step content here */}
-              {renderStepContent(index)}
+            {renderStepContent(index)}
           </View>
         ))}
       </ScrollView>
@@ -203,7 +206,6 @@ const styles = StyleSheet.create({
     marginTop: 200, // Adjust this value as needed
   },
   iconBar: {
-
     // position: "absolute",
     top: 0,
     width: 200,
@@ -267,7 +269,6 @@ const styles = StyleSheet.create({
   row: {
     flex: 1,
     flexDirection: "row",
-    
   },
   column: {
     flex: 1,
@@ -275,4 +276,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomStepper;
+export default Stepper;

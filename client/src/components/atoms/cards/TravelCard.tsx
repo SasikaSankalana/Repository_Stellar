@@ -20,38 +20,36 @@ const TravelCard: React.FC<TravelCardProps> = ({
     <View style={styles.cardContainer}>
       <View style={styles.row}>
         <View style={styles.column}>
-        <Text style={styles.modeText}>{travelMode}</Text>
+          <Text style={styles.modeText}>{travelMode}</Text>
         </View>
         <View style={styles.column}>
-        <Text style={styles.priceText}>{price}</Text>
+          <Text style={styles.priceText}>{price}</Text>
         </View>
       </View>
 
       <View style={styles.row}>
         <View style={styles.column}>
-        <Text style={styles.startTime}>{startTime}</Text>
+          <Text style={styles.startTime}>{startTime}</Text>
         </View>
         <View style={styles.column}>
-            <View style={styles.durBox}>
+          <View style={styles.durBox}>
             <Text style={styles.duration}>{duration}</Text>
-            </View>
+          </View>
         </View>
         <View style={styles.column}>
-        <Text style={styles.endTime}>{endTime}</Text>
+          <Text style={styles.endTime}>{endTime}</Text>
         </View>
       </View>
 
       <View style={styles.row}>
         <View style={styles.column}>
-        <Text style={styles.sne}>START</Text>
+          <Text style={styles.sne}>START</Text>
         </View>
+        <View style={styles.column}></View>
         <View style={styles.column}>
-        </View>
-        <View style={styles.column}>
-        <Text style={styles.sne}>END</Text>
+          <Text style={styles.sne}>END</Text>
         </View>
       </View>
-
     </View>
   );
 };
@@ -67,50 +65,50 @@ const styles = StyleSheet.create({
   },
   modeText: {
     fontSize: 16,
-    color:"white",
-    fontFamily:"Arial",
+    color: "white",
+    fontFamily: "Inter",
     fontWeight: "700",
-    textAlign:"left",
+    textAlign: "left",
   },
   priceText: {
     fontSize: 16,
-    color:"white",
-    fontFamily:"Arial",
+    color: "white",
+    fontFamily: "Inter",
     fontWeight: "400",
-    textAlign:"right",
+    textAlign: "right",
   },
-  startTime:{
+  startTime: {
     fontSize: 20,
-    color:"white",
-    fontFamily:"Arial",
+    color: "white",
+    fontFamily: "Inter",
     fontWeight: "400",
-    textAlign:"left",
+    textAlign: "left",
   },
-  endTime:{
+  endTime: {
     fontSize: 20,
-    color:"white",
-    fontFamily:"Arial",
+    color: "white",
+    fontFamily: "Inter",
     fontWeight: "700",
-    textAlign:"right",
+    textAlign: "right",
   },
-  duration:{
-    textAlign:"center",
+  duration: {
+    textAlign: "center",
   },
   durBox: {
     width: 50,
     height: 24,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#FFF',
-    backgroundColor: '#D9D9D9',
-    alignItems:"center",
+    borderColor: "#FFF",
+    backgroundColor: "#D9D9D9",
+    alignItems: "center",
   },
-  sne:{
+  sne: {
     fontSize: 12,
-    color:"rgba(255, 253, 253, 0.50)",
-    fontFamily:"Arial",
+    color: "rgba(255, 253, 253, 0.50)",
+    fontFamily: "Inter",
     fontWeight: "700",
-    textAlign:"center",
+    textAlign: "center",
   },
   row: {
     flex: 1,

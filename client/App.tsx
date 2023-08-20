@@ -1,41 +1,34 @@
-import React from 'react';
-import {View, StyleSheet, Text, ImageBackground} from 'react-native';
-import {SafeAreaView} from "react-native-safe-area-context";
-import DropdownComponent from "./src/components/atoms/DropdownComponent";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from "expo-font";
+
+import LandingPage from "./src/pages/LandingPage";
+import SearchPage from "./src/pages/SearchPage";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-
-    // const [test, setTest] = React.useState()
-    //
-    // React.useEffect(()=>{
-    //     console.log(test)
-    // },[test])
-    //
-    // const data = [
-    //     { label: 'Urenus', value: '1' },
-    //     { label: 'Nepchune', value: '2' },
-    //     { label: 'Earth', value: '3' },
-    //     { label: 'Item 4', value: '4' },
-    //     { label: 'Item 5', value: '5' },
-    //     { label: 'Item 6', value: '6' },
-    //     { label: 'Item 7', value: '7' },
-    //     { label: 'Item 8', value: '8' },
-    // ];
-
-    return (
-        <SafeAreaView style={styles.container}>
-
-        </SafeAreaView>
-    );
+  const [fontsLoaded] = useFonts({
+    Rollbox: require("./src/assets/fonts/RollboxLight.ttf"),
+    Inter: require("./src/assets/fonts/Inter.ttf"),
+  });
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {/* <Stack.Screen
+          name="Home"
+          component={LandingPage}
+          options={{ headerShown: false }}
+        /> */}
+        <Stack.Screen
+          name="Search"
+          component={SearchPage}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-});
 
 export default App;
