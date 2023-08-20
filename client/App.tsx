@@ -10,26 +10,27 @@ import TravelCardExample from "./src/pages/TravelCardExample";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [fontsLoaded] = useFonts({
-    Rollbox: require("./src/assets/fonts/RollboxLight.ttf"),
-    Inter: require("./src/assets/fonts/Inter.ttf"),
-  });
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {/* <Stack.Screen
+    const [fontsLoaded] = useFonts({
+        Rollbox: require("./src/assets/fonts/RollboxLight.ttf"),
+        Inter: require("./src/assets/fonts/Inter.ttf"),
+    });
+    
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                {/* <Stack.Screen
           name="Home"
           component={LandingPage}
           options={{ headerShown: false }}
         /> */}
-        <Stack.Screen
-          name="TravelCardExample"
-          component={TravelCardExample}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+                <Stack.Screen
+                    name="TravelCardExample"
+                    component={TravelCardExample}
+                    options={{ headerShown: false }}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 };
 
 export default App;

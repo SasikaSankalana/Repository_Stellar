@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 
 interface TravelCardProps {
     travelMode: string;
-    price: string;
+    price: number;
     startTime: string;
     endTime: string;
     duration: string;
@@ -40,7 +40,7 @@ const TravelCard: React.FC<TravelCardProps> = ({
                 </View>
 
                 <View style={styles.column}>
-                    <Text style={styles.priceText}>{price}</Text>
+                    <Text style={styles.priceText}>${price.toLocaleString("en-US")}</Text>
                     <Text style={styles.endTime}>{endTime}</Text>
                     <Text style={styles.sne}>END</Text>
                 </View>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     modeText: {
         fontSize: 16,
-        color: "white",
+        color: "black",
         fontWeight: "700",
     },
     priceText: {

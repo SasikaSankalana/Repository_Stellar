@@ -6,7 +6,7 @@ import TravelCard from './TravelCard';
 
 interface TravelCardProps {
     travelMode: string;
-    price: string;
+    price: number;
     startTime: string;
     endTime: string;
     duration: string;
@@ -26,8 +26,8 @@ const TravelCardContainer: React.FC<TravelCardContainerProps> = ({
     }
 
     return (
-        <View style={styles.cardContainer}>
-            <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.cardContainer}>
                 {travelData.map((data, index) => (
                     <TravelCard
                         key={index}
@@ -40,8 +40,8 @@ const TravelCardContainer: React.FC<TravelCardContainerProps> = ({
                         handlePress={() => handlePress(index)}
                     />
                 ))}
-            </ScrollView>
-        </View>
+            </View>
+        </ScrollView>
     )
 }
 
