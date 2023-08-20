@@ -4,7 +4,7 @@ import { en, registerTranslation } from "react-native-paper-dates";
 registerTranslation("en", en);
 import { DatePickerInput } from "react-native-paper-dates";
 
-export default function DatePicker() {
+const DatePicker = ({ setInputDatee, width }) => {
   const [inputDate, setInputDate] = React.useState<Date | undefined>(undefined);
 
   return (
@@ -12,9 +12,11 @@ export default function DatePicker() {
       locale="en"
       label="Birthdate"
       value={inputDate}
-      onChange={(d) => setInputDate(d)}
+      onChange={(d) => setInputDatee(d)}
       inputMode="start"
       style={{ width: "100%" }}
     />
   );
 }
+
+export default DatePicker;

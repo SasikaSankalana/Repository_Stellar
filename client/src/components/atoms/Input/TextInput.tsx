@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TextInput } from "react-native-paper";
 
-const Input = () => {
-  const [text, setText] = useState("");
+const Input = ({label, value, setValue}) => {
   return (
     <TextInput
-      label="Label"
-      value={text}
-      onChangeText={setText}
+      label={label}
+      value={value}
+      onChange={(d) => setValue(d)}
       style={{
         color: "white",
         backgroundColor: "rgba(0,0,0, 0.5)",

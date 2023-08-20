@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 
 import LandingPage from "./src/pages/LandingPage";
 import SearchPage from "./src/pages/SearchPage";
+import PaymentOptiones from "./src/pages/PaymentOptiones";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,15 +17,20 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
-          name="Home"
-          component={LandingPage}
-          options={{ headerShown: false }}
-        /> */}
+        {/* <Stack.Screen*/}
+        {/*  name="Home"*/}
+        {/*  component={LandingPage}*/}
+        {/*  options={{ headerShown: false }}*/}
+        {/*/>*/}
+        {/*<Stack.Screen*/}
+        {/*  name="Search"*/}
+        {/*  component={SearchPage}*/}
+        {/*  options={{ headerShown: false }}*/}
+        {/*/>*/}
         <Stack.Screen
-          name="Search"
-          component={SearchPage}
-          options={{ headerShown: false }}
+            name="PaymentOption"
+            component={PaymentOptiones}
+            options={{ headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
