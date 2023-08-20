@@ -194,11 +194,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
+    height: "100%",
   },
   iconsBar: {
     position: "absolute",
     top: 5,
-    left: 100,
+    left: "18%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -208,7 +210,7 @@ const styles = StyleSheet.create({
   iconBar: {
     // position: "absolute",
     top: 0,
-    width: 200,
+    width: "20%",
     height: 10,
     backgroundColor: "transparent",
     marginTop: 10,

@@ -39,7 +39,7 @@ const SearchPage: React.FC = () => {
   ];
 
   return (
-    <View>
+    <View style={styles.container}>
       {/* <DropdownInput
         data={data}
         labelTitle="test"
@@ -63,3 +63,11 @@ const SearchPage: React.FC = () => {
 };
 
 export default SearchPage;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
