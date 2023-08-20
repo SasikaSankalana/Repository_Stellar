@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import CustomStepper from './src/components/molecules/Stepper';
+import TravelCard from './src/components/atoms/TravelCard';
 
-export default function App() {
+const App = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
+
+  const handleNext = () => {
+    setActiveStep((prevStep) => prevStep + 1);
+  };
+
+  const handlePrev = () => {
+    setActiveStep((prevStep) => prevStep - 1);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {/* <CustomStepper
+        activeStep={activeStep}
+        steps={steps}
+        onNext={handleNext}
+        onPrev={handlePrev}
+      /> */}
+      <TravelCard travelMode="Bus" price="£2.40" startTime="10:00" endTime="10:30" duration="30 mins" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });
+
+export default App;
