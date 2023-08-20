@@ -34,18 +34,88 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
         onNext();
       }
     };
+
+    const renderStepContent = (stepIndex: number) => {
+        switch (stepIndex) {
+          case 0:
+            return (
+              <View>
+                <Text>Step 1 Content</Text>
+                {/* Add your content for Step 1 here */}
+              </View>
+            );
+          case 1:
+            return (
+              <View>
+                <Text>Step 2 Content</Text>
+                {/* Add your content for Step 2 here */}
+              </View>
+            );
+          case 2:
+            return (
+              <View>
+                <Text>Step 3 Content</Text>
+                {/* Add your content for Step 3 here */}
+              </View>
+            );
+          case 3:
+            return (
+              <View>
+                <Text>Step 4 Content</Text>
+                {/* Add your content for Step 4 here */}
+              </View>
+            );
+          default:
+            return null;
+        }
+      };
+
+      const renderStepLabel = (stepIndex: number) => {
+        switch (stepIndex) {
+          case 0:
+            return (
+              <View>
+                <Text>Flights</Text>
+                {/* Add your content for Step 1 here */}
+              </View>
+            );
+          case 1:
+            return (
+              <View>
+                <Text>Passengers</Text>
+                {/* Add your content for Step 2 here */}
+              </View>
+            );
+          case 2:
+            return (
+              <View>
+                <Text>Payment</Text>
+                {/* Add your content for Step 3 here */}
+              </View>
+            );
+          case 3:
+            return (
+              <View>
+                <Text>Confirm</Text>
+                {/* Add your content for Step 4 here */}
+              </View>
+            );
+          default:
+            return null;
+        }
+      };
   return (
     <View style={styles.container}>
       {/* Bar behind the top icons */}
       <View style={styles.iconsBar}>
         {steps.map((_, index) => (
           <View
-            key={index}
+            key={index-1}
             style={[
               styles.iconBar,
               {
-                backgroundColor:
-                  index <= activeStep ? "#784af4" : "transparent",
+                backgroundColor: index == 3 ? "transparent" :
+                  index+1 <= activeStep && index!=3 ? "#26AFFF" : "#9CDBFF",
               },
             ]}
           />
@@ -58,7 +128,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
               cx="20"
               cy="20"
               r="15"
-              fill={index === activeStep ? "#ff0000" : "#aaaaaa"} // Change the inactive color here
+              fill={index === activeStep ? "#ff0000" : "#0b78b3"} // Change the inactive color here
               stroke="#784af4"
             />
           </Svg>
@@ -73,7 +143,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
               { fontWeight: index === activeStep ? "bold" : "normal" },
             ]}
           >
-            {step}
+            {renderStepLabel(index)}
           </Text>
         ))}
       </View>
@@ -87,7 +157,7 @@ const CustomStepper: React.FC<CustomStepperProps> = ({
             ]}
           >
             {/* Add your step content here */}
-            <Text>Step {index + 1} Content</Text>
+              {renderStepContent(index)}
           </View>
         ))}
       </ScrollView>
@@ -124,8 +194,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   iconsBar: {
-        position: "absolute",
-    top: 0,
+    position: "absolute",
+    top: 5,
+    left: 100,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -136,7 +207,7 @@ const styles = StyleSheet.create({
 
     // position: "absolute",
     top: 0,
-    width: 40,
+    width: 200,
     height: 10,
     backgroundColor: "transparent",
     marginTop: 10,
@@ -152,7 +223,8 @@ const styles = StyleSheet.create({
   },
   stepLabels: {
     position: "absolute",
-    top: 200,
+    top: 240,
+    left: 80,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -196,6 +268,7 @@ const styles = StyleSheet.create({
   row: {
     flex: 1,
     flexDirection: "row",
+    
   },
   column: {
     flex: 1,

@@ -17,13 +17,13 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      {/* <CustomStepper
+      <CustomStepper
         activeStep={activeStep}
         steps={steps}
         onNext={handleNext}
         onPrev={handlePrev}
-      /> */}
-      <TravelCard travelMode="Bus" price="£2.40" startTime="10:00" endTime="10:30" duration="30 mins" />
+      />
+      {/* <TravelCard travelMode="Bus" price="£2.40" startTime="10:00" endTime="10:30" duration="30 mins" /> */}
     </View>
   );
 };
