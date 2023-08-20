@@ -15,6 +15,7 @@ import {
 import DropdownInput from "../components/atoms/Input/DropDown";
 import TravelCard from "../components/atoms/cards/TravelCard";
 import Stepper from "../components/organisms/Stepper";
+import Hamburger from "../components/atoms/hamburger/Hamburger";
 
 const SearchPage: React.FC = () => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -52,12 +53,13 @@ const SearchPage: React.FC = () => {
         endTime="asd"
         duration="sad"
       /> */}
-      <Stepper
+      {/* <Stepper
         activeStep={activeStep}
         steps={steps}
         onNext={handleNext}
         onPrev={handlePrev}
-      />
+      /> */}
+      <Hamburger />
     </View>
   );
 };
